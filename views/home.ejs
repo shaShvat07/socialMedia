@@ -1,1 +1,23 @@
 <h1> Home page / <%= title %> </h1> 
+<section id="feed-posts"> 
+    <h4> POST </h4>
+    <form action="/posts/create" id="new-post-form" method="POST">
+            <textarea name="content" placeholder="Type here ..." cols="50" rows="3"></textarea>
+            <input type="submit" value="POST">
+    </form>
+
+    <div id="post-list-container">
+            <ul>
+                <% for(post of posts) { %>
+                    <p> 
+                        <li> <%= post.content %> 
+                            <br>
+                            <div id="user-name"> - <%= post.user.name %> </div>
+                            <br>
+                        </li>
+                    </p>
+                       
+                <% } %>
+            </ul>
+    </div>
+</section>

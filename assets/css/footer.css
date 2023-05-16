@@ -1,0 +1,7 @@
+footer {
+  position: relative;
+  margin-top: auto;
+  text-align: center;
+  background-color: grey;
+  height: 5%;
+  overflow: hidden; }

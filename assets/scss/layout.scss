@@ -1,6 +1,31 @@
-body{
+body{   
     margin: 0; 
-    text-align: center;
     background-color: salmon;
+    overflow-x: hidden;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#post-list-container{
+    height: 4rem;
+    ul{
+        float: left;
+        position: relative;
+        height: 100%;
+        li{
+            padding: 12px;
+            position: relative; 
+            display: inline-block; 
+            background-color: white;
+            border: 2px solid black; 
+            border-radius: 8px;
+            #user-name{
+                float: right;
+            }
+        }
+    }
 }
 
