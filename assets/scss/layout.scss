@@ -1,29 +1,108 @@
 body{   
     margin: 0; 
-    background-color: salmon;
+    background-color: white;
     overflow-x: hidden;
     position: relative;
     height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
+.title{
+    text-align: center;
+}
+.feed{
+    margin-top: 0;
+    color: black;
+    font-family: cursive;
+}
+
+.post-form{
+    width: 50%;
+    height: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    textarea{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        border: 2px solid black;
+        border-radius: 8px;
+    }
+    input{
+        float: right;
+        background-color: white;
+        border: 2px solid black;
+        border-radius: 8px;
+        width: 5rem;
+        &:hover {
+            background-color: rgb(183, 183, 183);
+            cursor: pointer;
+        }
+    } 
+}
 #post-list-container{
     height: 4rem;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
     ul{
-        float: left;
         position: relative;
         height: 100%;
+        float: left;
+        margin-left: 0;
         li{
             padding: 12px;
             position: relative; 
             display: inline-block; 
             background-color: white;
+            color: black;
             border: 2px solid black; 
             border-radius: 8px;
-            #user-name{
+            .post-content{
+                background-color:rgb(255, 193, 205);
+                border: 1px solid black;
+                border-radius: 8px;
+                padding: 5px;
+                margin-bottom: 5px;
+            }
+            .user-name{
                 float: right;
+                color: rgb(43, 0, 66);
+            }
+            #comment-list{
+                .comment-form{
+                    input{
+                        background-color: white;
+                        padding: 4px;
+                        border: 2px solid black;
+                        border-radius: 8px;
+                    } 
+                    .submit:hover{
+                        background-color: rgb(183, 183, 183);
+                        cursor: pointer;
+                    }
+                }
+
+                .post-comment-list{
+                    // width: 100%;
+                    ul{
+                        float: left;
+                        // width: 100%;
+                        height: fit-content;
+                        p{
+                            background-color: greenyellow;
+                            width: 90%;
+                            padding: 4px;
+                            border: 2px solid black;
+                            border-radius: 8px;
+                            height: fit-content;
+                        }
+                    }
+                }
             }
         }
     }

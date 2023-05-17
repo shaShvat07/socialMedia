@@ -21,6 +21,8 @@ header {
         color: black;
         font-size: 20px;
         padding: 5px; }
+      header ul li:hover {
+        background-color: #c7c7c7; }
 
 .company {
   display: inline-block;

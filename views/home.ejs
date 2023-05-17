@@ -1,33 +1,41 @@
-<h1> Home page / <%= title %> </h1> 
-
 <section id="feed-posts"> 
 
-    <h4> POST </h4>
+    <h1 class="feed title" > FEED </h1>
+    <div class="post-form">
+    <% if(locals.user) { %>
+            <form action="/posts/create" id="new-post-form" method="POST">
+                <textarea name="content" placeholder="Type here ..." cols="50" rows="3" required></textarea>
+                <br>
+                <input type="submit" value="POST">
+            </form>
+    <% } %>
+    </div>
 
-        <% if(locals.user) { %>
-                <form action="/posts/create" id="new-post-form" method="POST">
-                    <textarea name="content" placeholder="Type here ..." cols="50" rows="3" required></textarea>
-                    <input type="submit" value="POST">
-                </form>
-        <% } %>
 
     <div id="post-list-container">
             <ul>
                 <% for(post of posts) { %>
                     <p> 
-                        <li> <%= post.content %> 
-                            <br>
-                            <small id="user-name">- <%= post.user.name %> </small>
-                            <br>
+                        <li> 
+                            <div class="post-content"> 
+                                <%= post.content %> 
+                                <br>
+                                <small class="user-name">- <%= post.user.name %> </small>
+                                <br>
+                            </div>
+                            
 
                             <div id="comment-list"> 
-                                <% if (locals.user) { %>
-                                    <form action="/comments/create" method="POST">
-                                        <input type="text" name="content" placeholder="Type here to add comment" required>
-                                        <input type="hidden" name="post" value = "<%= post._id%>">
-                                        <input type="submit" value="Add Comment">
-                                    </form>
-                                <% } %>
+                                <div class="comment-form">
+                                    <% if (locals.user) { %>
+                                        <form action="/comments/create" method="POST">
+                                            <input type="text" name="content" placeholder="Type here to add comment" required>
+                                            <input type="hidden" name="post" value = "<%= post._id%>">
+                                            <input class="submit" type="submit" value="Add Comment">
+                                        </form>
+                                    <% } %>
+                                </div>
+                               
 
                                 <div class="post-comment-list"> 
                                         <ul id="post-comments-<%= post._id%>">
