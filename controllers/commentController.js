@@ -1,11 +1,11 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
 
-module.exports.create = async function(req, res){
+module.exports.create = async function (req, res) {
     try {
         let post = await Post.findById(req.body.post);
 
-        if(post){
+        if (post) {
             try {
                 let comment = await Comment.create({
                     content: req.body.content,
@@ -16,24 +16,33 @@ module.exports.create = async function(req, res){
                 post.save();
                 res.redirect('/');
             } catch (error) {
-                console.log('Error in adding the comment' , error);
+                console.log('Error in adding the comment', error);
             }
         }
     } catch (error) {
-        console.log('Error in adding the comment' , error);
+        console.log('Error in adding the comment', error);
     }
 }
 
-// module.exports.destroy = async function(req, res) {
-//     try {
-//     let comment = await Comment.findById(req.params.id);
-//     if(comment.user == req.user.id){
-//         let postId = comment.post;
+module.exports.destroy = async function (req, res) {
+    try {
+        let comment = await Comment.findById(req.params.id);
+        if (comment.user == req.user.id) {
+            let postId = comment.post;
 
-//         comment.
-//     }
+            await Comment.findByIdAndDelete(comment.id);
 
-//     } catch (error) {
-//         console.log('error in deleting the comments ');
-//     }
-// }
+            await Post.findByIdAndUpdate(postId, { $pull: { comments: comment.id } });
+
+            return res.redirect('back');
+        }
+
+        else {
+            return res.redirect('back');
+        }
+
+    } catch (error) {
+        console.log('error in deleting the comments ');
+
+    }
+}
