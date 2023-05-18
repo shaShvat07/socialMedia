@@ -23,3 +23,17 @@ module.exports.create = async function(req, res){
         console.log('Error in adding the comment' , error);
     }
 }
+
+// module.exports.destroy = async function(req, res) {
+//     try {
+//     let comment = await Comment.findById(req.params.id);
+//     if(comment.user == req.user.id){
+//         let postId = comment.post;
+
+//         comment.
+//     }
+
+//     } catch (error) {
+//         console.log('error in deleting the comments ');
+//     }
+// }
