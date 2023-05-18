@@ -9,6 +9,21 @@ body{
     flex-direction: column;
     color: white;
 }
+#home-container{
+    display: flex;
+    #feed-posts{
+        width: 70%;
+        padding: 10px;
+    }
+    #user-friends{
+        width: 30%;
+        padding: 10px;
+    }
+}
+
+
+
+
 
 .title{
     text-align: center;
@@ -108,3 +123,7 @@ body{
     }
 }
 
+#user-friends{
+    color: black;
+
+}
