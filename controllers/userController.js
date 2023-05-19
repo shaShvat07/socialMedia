@@ -22,6 +22,7 @@ module.exports.update = async function(req,res) {
                 return res.status(401).send('Unauthorised!');
             }
     } catch (error) {
+        req.flash('error', 'Error in updating the profile!!');
         console.log('Error in updating the profile!!', error);
     }
 }
@@ -73,13 +74,16 @@ module.exports.create = async function (req, res) {
 
 //Sign in and create a session for the user
 module.exports.createSession = function (req, res) {
+    req.flash('success' , 'Logged in Successfully');
     return res.redirect('/');
+
 }
 
 //Destroy the session 
 module.exports.destroySession = function(req, res) {
     req.logout(function(err) {
         if (err) { return next(err); }
+        req.flash('success' , 'You have logged out!!');
         res.redirect('/');
       });
 }

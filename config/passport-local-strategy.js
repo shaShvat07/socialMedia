@@ -5,16 +5,17 @@ const User = require('../models/user');
 //Aunthenticate using Passport JS
 
 passport.use(new LocalStrategy({
-    usernameField: 'email'
+    usernameField: 'email',
+    passReqToCallback: true
 },
-   async function(email,password,done){
+   async function(req,email,password,done){
         //Find a user and establish the identity
         try {
             let user = await User.findOne({email: email});
 
             if(!user || user.password != password)
             {
-                console.log('Invalid Username/Password');
+                req.flash('error', 'Invalid Username/Password');
                 return done(null, false);
             }
 
@@ -22,7 +23,7 @@ passport.use(new LocalStrategy({
 
         } catch (err) {
             if(err){
-                console.log('Error in finding the user! -> Passport');
+                req.flash('error', 'Error!!!');
                 return done(err);
             }
         }
