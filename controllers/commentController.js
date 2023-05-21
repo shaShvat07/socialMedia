@@ -1,5 +1,6 @@
 const Comment = require('../models/comment');
 const Post = require('../models/post');
+const User = require('../models/user');
 
 module.exports.create = async function (req, res) {
     try {
@@ -14,13 +15,30 @@ module.exports.create = async function (req, res) {
                 });
                 post.comments.push(comment);
                 post.save();
+
+                if (req.xhr) {
+                    await comment.populate('user', 'name');
+                    return res.status(200).json({
+                        data: {
+                            comment: comment
+                        },
+                        message: "Comment created!"
+                    });
+                }
+
+                req.flash('success', 'Comment published!');
                 res.redirect('/');
+
             } catch (error) {
+                req.flash('error', error);
                 console.log('Error in adding the comment', error);
+                return;
             }
         }
     } catch (error) {
+        req.flash('error', 'Comment failed!');
         console.log('Error in adding the comment', error);
+        return;
     }
 }
 
@@ -32,17 +50,30 @@ module.exports.destroy = async function (req, res) {
 
             await Comment.findByIdAndDelete(comment.id);
 
-            await Post.findByIdAndUpdate(postId, { $pull: { comments: comment.id } });
+            let post = await Post.findByIdAndUpdate(postId, { $pull: { comments: comment.id } });
 
+            if(req.xhr)
+            {
+                return res.status(200).json({
+                    data: {
+                        comment_id: req.params.id
+                    },
+                    message: "Comment deleted!"
+                });
+            }
+
+            req.flash('success', 'Comment deleted!');
             return res.redirect('back');
         }
 
         else {
+            req.flash('error' , 'Unauthorized');
             return res.redirect('back');
         }
 
     } catch (error) {
+        req.flash('error', 'Cannot delete comment!');
         console.log('error in deleting the comments ');
-
+        return;
     }
 }

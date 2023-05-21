@@ -1,5 +1,5 @@
 const User = require('../models/user');
-
+ 
 
 module.exports.profile = async function (req, res) {
 
@@ -16,9 +16,11 @@ module.exports.update = async function(req,res) {
             if(req.user.id == req.params.id)
             {
                 let user = await User.findByIdAndUpdate(req.params.id , req.body);
+                req.flash('success' , 'Updated!');
                 return res.redirect('back');
             }
             else{
+                req.flash('error' , 'Unauthorized!');
                 return res.status(401).send('Unauthorised!');
             }
     } catch (error) {
@@ -33,7 +35,7 @@ module.exports.signUp = function (req, res) {
     }
     
     return res.render('user_sign_up', {
-        title: "Codeial | Sign Up"
+        title: "S.H.I.E.L.D | Sign Up"
     })
 }
 
@@ -44,7 +46,7 @@ module.exports.signIn = function (req, res) {
     }
 
     return res.render('user_sign_in', {
-        title: "Codeial | Sign In"
+        title: "S.H.I.E.L.D | Sign In"
     })
 }
 
@@ -52,6 +54,7 @@ module.exports.signIn = function (req, res) {
 module.exports.create = async function (req, res) {
     try {
         if (req.body.password != req.body.confirm_password) {
+        req.flash('error', 'Password do not match');
             return res.redirect('back');
         }
 
@@ -62,6 +65,7 @@ module.exports.create = async function (req, res) {
             return res.redirect('/users/sign-in');
 
         } else {
+            req.flash('success', 'You have signed up, login to continue!');
             return res.redirect('back');
         }
     } catch (err) {

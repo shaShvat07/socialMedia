@@ -1,19 +1,37 @@
 const { findByIdAndDelete } = require('../models/comment');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
+const User = require('../models/user');
 module.exports.create = async function (req, res) {
     try {
-        await Post.create({
+        let post = await Post.create({
             content: req.body.content,
             user: req.user._id
-        })
-        req.flash('success', 'Post Published!!');
+        }); 
+        console.log(post.user.name);
 
+    // To detect AJAX request 
+        if(req.xhr){
+            // if we want to populate just the name of the user (we'll not want to send the password in the API), this is how we do it!
+            
+            
+            await post.populate('user', 'name');
+
+            return res.status(200).json({
+                data: {
+                    post: post
+                },
+                message:"Post Created !!"
+            });
+        }
+
+        req.flash('success', 'Post Published!!');
         return res.redirect('back');
 
     } catch (error) {
         req.flash('error', error);
-        return;
+        console.log(error);
+        return res.redirect('back');
     }
 }
 
@@ -26,6 +44,17 @@ module.exports.destroy = async function (req, res) {
 
             await Comment.deleteMany({ post: req.params.id });
 
+            if(req.xhr){
+                return res.status(200).json({
+                    data: {
+                        post_id: req.params.id
+                    },
+                    message:"Post deleted !"
+                });
+    
+            }
+            
+            
             req.flash('success', 'Post and associated comments deleted!');
 
             return res.redirect('back');
@@ -38,6 +67,6 @@ module.exports.destroy = async function (req, res) {
     } catch (error) {
         req.flash('error', error);
         console.log('error in deleting the post !! ', error);
-        return;
+        return res.redirect('back');
     }
 }

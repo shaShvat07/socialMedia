@@ -21,9 +21,9 @@
     <div id="post-list-container">
       <ul>
         <% for(post of posts) { %>
-        <p>
-          <li><%- include('_post') -%> <%- include('_comment') -%></li>
-        </p>
+    
+          <%- include('_post') -%>    
+        
         <% } %>
       </ul>
     </div>
@@ -36,5 +36,9 @@
       <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
     </p>
     <% } %>
-  </section>
+  </section> 
+  
 </div>
+
+<script src="/javascript/home_post_comments.js"></script>
+<script src="/javascript/home_posts.js"></script>
