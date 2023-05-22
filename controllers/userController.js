@@ -15,7 +15,23 @@ module.exports.update = async function(req,res) {
     try {
             if(req.user.id == req.params.id)
             {
-                let user = await User.findByIdAndUpdate(req.params.id , req.body);
+                let user = await User.findById(req.params.id);
+                User.uploadedAvatar(req, res, function(err){
+                    if(err){
+                        console.log("MULTER ERROR " , err);
+                    }
+
+                    user.name = req.body.name;
+                    user.email = req.body.email;
+                    if(req.file){
+                        // We are saving the path of the avatar file in the avatar property of user.
+                        user.avatar = User.avatarPath + '/' + req.file.filename ;
+                    }
+                    user.save();
+                    console.log(req.file);
+                })
+
+                
                 req.flash('success' , 'Updated!');
                 return res.redirect('back');
             }
@@ -28,6 +44,7 @@ module.exports.update = async function(req,res) {
         console.log('Error in updating the profile!!', error);
     }
 }
+
 //Render the signUp Page
 module.exports.signUp = function (req, res) {
     if(req.isAuthenticated()){
