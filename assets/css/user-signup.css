@@ -1,6 +1,6 @@
 .sign-box {
   width: 30%;
-  height: 100%;
+  height: 95%;
   background-color: #008cff;
   border: 2px solid black;
   position: relative;
@@ -21,10 +21,31 @@
   .sign-box form .submit-button {
     width: 80%;
     margin-left: 10%;
-    background-color: aqua; }
+    background-color: aqua;
+    font-size: 18px; }
   .sign-box form .submit-button:hover {
     cursor: pointer;
-    background-color: #008cff;
-    border: 1px solid black;
+    background-color: #09f709; }
+  .sign-box .Or {
+    font-size: 20px;
     color: white;
-    background-color: blue; }
+    text-align: center; }
+  .sign-box .Google {
+    width: 90%;
+    margin: 10px auto 10px auto;
+    border: 2px solid black;
+    text-align: center;
+    height: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .sign-box .Google a {
+      color: black;
+      font-size: 20px;
+      text-align: center;
+      text-decoration: none; }
+  .sign-box .Google:hover {
+    cursor: pointer;
+    background-color: #09f709; }
