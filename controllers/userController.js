@@ -1,16 +1,25 @@
 const User = require('../models/user');
 const fs = require('fs');
 const path = require('path');
+const Friendship = require('Friendship');
  
 
 module.exports.profile = async function (req, res) {
 
-    let user = await User.findById(req.params.id);
+    try {
+        let user = await User.findById(req.params.id);
 
-    return res.render('user-profile', {
-        title: "User Profile",
-        profile_user: user
-    });
+        let populated_user = await User.findById(req.user).populate('friends');
+
+        return res.render('user-profile', {
+            title: "User Profile",
+            profile_user: user,
+             populated_user
+        });
+    } catch (err) {
+        console.log('ERROR IN updating the profile ', err);
+        return;
+    }
 }
 
 module.exports.update = async function(req,res) {
