@@ -38,8 +38,10 @@
     <% } %>
 
     <%- include('_friend') -%>
+
   </section> 
-  
+
+  <%- include('_chat_box') -%>
 </div>
 
 <script src="/javascript/home_post_comments.js"></script>
@@ -52,3 +54,11 @@
         let toggleLike = new ToggleLike(self);
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script src="/javascript/chat_engine.js"> </script>
+
+<% if(locals.user) { %>
+<script>
+      new chatEngine('user-chat-box' , '<%= locals.user._id %>');
+</script>
+<% } %>
