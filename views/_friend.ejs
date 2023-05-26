@@ -1,0 +1,69 @@
+<!-- <h4>Friends</h4>
+<% for (u of all_users) { %>
+<p>
+  <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
+</p>
+<% } %> -->
+<% if(locals.user) { %>
+  <div class="friends-list">
+    <div class="header">Friends</div>
+    <br>
+    <% if(locals.user.friends.length == 0) { %>
+
+    <div class="no-friends">No friends found!</div>
+
+    <% }else{ %> 
+    
+      <% for(friend of locals.user.friends){ %> 
+      
+        <% if(friend.from_user.id == locals.user.id) { %>
+    <div>
+      <a class="friends-item" href="/users/profile/<%=friend.to_user._id%>">
+        <div class="friends-img">
+          <% if(friend.to_user.avatar == undefined){ %>
+          <img
+            class="rounded-circle"
+            id="user-dp"
+            src="https://image.flaticon.com/icons/svg/2154/2154651.svg"
+            alt="logo"
+          />
+          <% }else{ %>
+          <img
+            class="rounded-circle"
+            id="user-dp"
+            src="<%= locals.user.avatar %>"
+            alt="logo"
+          />
+          <% } %>
+        </div>
+        <div class="friends-name"><%= friend.to_user.name %></div>
+      </a>
+    </div>
+    <%}%> <% if(friend.to_user.id == locals.user.id) { %>
+    <div>
+      <a class="friends-item" href="/users/profile/<%=friend.from_user._id%>">
+        <div class="friends-img">
+          <% if(friend.from_user.avatar == undefined){ %>
+          <img
+            class="rounded-circle"
+            id="user-dp"
+            src="https://image.flaticon.com/icons/svg/2154/2154651.svg"
+            alt="logo"
+          />
+          <% }else{ %>
+          <img
+            class="rounded-circle"
+            id="user-dp"
+            src="<%= locals.user.avatar %>"
+            alt="logo"
+          />
+          <% } %>
+        </div>
+        <br>
+        <div class="friends-name"><%= friend.from_user.name %></div>
+      </a>
+    </div>
+    <% } %> <% } %> <% } %>
+  </div>
+  <% } %> 
+  

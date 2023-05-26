@@ -1,6 +1,7 @@
 const Post = require('../models/post');
 const User = require('../models/user');
 
+
 module.exports.home = async function (req, res) {
     try {
         let posts = await Post.find({})
@@ -19,10 +20,28 @@ module.exports.home = async function (req, res) {
 
         let users = await User.find({});
 
+        let user;
+        if (req.user) {
+          user = await User.findById(req.user._id)
+            .populate({
+              path: "friends",
+              populate: {
+                path: "from_user",
+              },
+            })
+            .populate({
+              path: "friends",
+              populate: {
+                path: "to_user",
+              },
+            });
+        }
+
         return res.render('home', {
             title: "SHIELD",
             posts: posts,
-            all_users: users
+            all_users: users,
+            user: user
         });
     } catch (err) {
         console.log('Error', err);

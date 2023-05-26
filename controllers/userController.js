@@ -1,8 +1,7 @@
 const User = require('../models/user');
 const fs = require('fs');
 const path = require('path');
-const Friendship = require('Friendship');
- 
+const Friendship = require('../models/friendship'); 
 
 module.exports.profile = async function (req, res) {
 

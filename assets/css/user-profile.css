@@ -3,3 +3,10 @@ body {
   margin: 0;
   color: black;
   text-align: center; }
+  body .img-container {
+    width: 30%;
+    height: 30%;
+    margin: 0 auto 10px auto; }
+    body .img-container img {
+      height: 100%;
+      width: 100%; }

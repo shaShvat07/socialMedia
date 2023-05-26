@@ -3,4 +3,13 @@ body{
     margin: 0;
     color: black;
     text-align: center;
+    .img-container{
+        width: 30%;
+        height: 30%;
+        margin: 0 auto 10px auto;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
 }
