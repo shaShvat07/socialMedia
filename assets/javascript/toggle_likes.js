@@ -21,14 +21,19 @@ class ToggleLike{
                 console.log(likesCount);
                 if (data.data.deleted == true){
                     likesCount -= 1;
+                    $(self).attr('data-likes', likesCount);
+                    // $(self).html(`${likesCount} Likes`);
+                    $(self).html(`<i class="fa-regular white  fa-heart fa-lg"> ${likesCount} </i>`);
                     
                 }else{
                     likesCount += 1;
+                    $(self).attr('data-likes', likesCount);
+                    // $(self).html(`${likesCount} Likes`);
+                    $(self).html(`<i class="fa-solid  pink fa-heart fa-lg"> ${likesCount} </i>`);
                 }
 
 
-                $(self).attr('data-likes', likesCount);
-                $(self).html(`${likesCount} Likes`);
+
 
             })
             .fail(function(errData) {

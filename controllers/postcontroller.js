@@ -2,21 +2,19 @@ const { findByIdAndDelete } = require('../models/comment');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
 const User = require('../models/user');
+const Like = require('../models/like');
 module.exports.create = async function (req, res) {
     try {
         let post = await Post.create({
             content: req.body.content,
             user: req.user._id
         });
-        console.log(post.user.name);
+        await post.populate('user', 'name');
+
 
         // To detect AJAX request 
         if (req.xhr) {
             // if we want to populate just the name of the user (we'll not want to send the password in the API), this is how we do it!
-
-
-            await post.populate('user', 'name');
-
             return res.status(200).json({
                 data: {
                     post: post
@@ -43,7 +41,7 @@ module.exports.destroy = async function (req, res) {
 
             //delete the associated likes for the post and all its comments' likes too
             await Like.deleteMany({ likeable: post, onModel: 'Post' });
-            await Like.deleteMany({ _id: { $in: post.comments } });
+            await Like.deleteMany({ likeable: { $in: post.comments } });
 
             await Post.findByIdAndDelete(post.id);
 

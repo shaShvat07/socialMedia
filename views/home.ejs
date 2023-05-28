@@ -1,3 +1,4 @@
+<% if(locals.user) { %> 
 <div id="home-container">
   <section id="feed-posts">
     <h1 class="feed title">FEED</h1>
@@ -7,7 +8,7 @@
       <form action="/posts/create" id="new-post-form" method="POST">
         <textarea
           name="content"
-          placeholder="Type here ..."
+          placeholder="Type here ...."
           cols="50"
           rows="3"
           required
@@ -43,6 +44,28 @@
 
   <%- include('_chat_box') -%>
 </div>
+<%} else { %>
+  <div id="HomePage"> 
+    <section class="homeDefault">
+      <h1 class="introHead"> DISCOVER . </h1>
+      <h1 class="introHead"> CONNECT . </h1>
+      <h1 class="introHead"> LIKE . </h1>    
+    </section>
+
+    <section class="joinUs">
+      <div class="inviteCard">
+        Welcome to the Lambda Project!
+        <div id="subMsg">
+          Building Bridges with Every Like
+        </div>
+        <div id="getStarted">
+             Join Now  
+        </div>
+      </div>
+</section>
+  </div>
+    
+  <% } %>
 
 <script src="/javascript/home_post_comments.js"></script>
 <script src="/javascript/home_posts.js"></script>

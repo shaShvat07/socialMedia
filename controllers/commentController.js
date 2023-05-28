@@ -3,6 +3,7 @@ const Post = require('../models/post');
 const User = require('../models/user');
 const commentsMailer = require('../mailers/comments_mailer');
 const commentEmailWorker = require('../workers/comment_email_worker');
+const Like = require('../models/like');
 const queue = require('../config/kue');
 
 
@@ -17,10 +18,12 @@ module.exports.create = async function (req, res) {
                     post: req.body.post,
                     user: req.user._id
                 });
+
+                await comment.populate('user', 'name email');
+
                 post.comments.push(comment);
                 post.save();
 
-                await comment.populate('user', 'name email');
 
                 // commentsMailer.newComment(comment);
                 let job = queue.create('emails', comment).save(function (err) {
@@ -39,6 +42,7 @@ module.exports.create = async function (req, res) {
                         message: "Comment created!"
                     });
                 }
+         
 
                 req.flash('success', 'Comment published!');
                 res.redirect('/');

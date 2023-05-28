@@ -65,7 +65,7 @@ module.exports.signUp = function (req, res) {
     }
     
     return res.render('user_sign_up', {
-        title: "S.H.I.E.L.D | Sign Up"
+        title: "Lambda | Sign Up"
     })
 }
 
@@ -76,7 +76,7 @@ module.exports.signIn = function (req, res) {
     }
 
     return res.render('user_sign_in', {
-        title: "S.H.I.E.L.D | Sign In"
+        title: "Lambda| Sign In"
     })
 }
 

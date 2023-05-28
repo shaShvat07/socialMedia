@@ -1,6 +1,6 @@
 header{
     position: relative;
-    background-color: rgb(0, 140, 255);
+    // background-color: #7339AB;
     margin: 0;
     overflow: hidden;
     height: 15%;
@@ -8,34 +8,48 @@ header{
         float: right;
         height: 100%;
         margin-top: 2rem;
+        margin-right: 2rem;
         li{
            position: relative; 
            height: 26px;
            display: inline-block; 
            margin-right: 15px;
-           background-color: white;
-           border: 2px solid black; 
-           border-radius: 8px;
-        
+           border: 2px solid white;       
            a{
                 text-decoration: none;
-                color: black;
+                color: white;
                 font-size: 20px;
-                padding: 5px;
+                padding: 14px;
            }
            &:hover{
-            background-color: rgb(199, 199, 199)
+            background-color: white;
+            a{
+            color: black;
+            }
+        }     
         }
-           
+        #signIn{
+            background-color: white;
+            a{
+                color: black;
+            }
+            &:hover{
+                background-image: linear-gradient(to right, #ff9966, #ff5e62);
+                a{
+                    color: black;
+                }
+            }
         }
+      
     }
 }
 
 .company{
     display: inline-block;
-    font-size: 30px;
+    font-size: 35px;
     height: 100%;
-    margin-left: 1rem;
+    margin-left: 2rem;
     margin-top: 1.5rem;
+    color: white;
 }
 

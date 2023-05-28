@@ -1,24 +1,99 @@
 body{   
     margin: 0; 
-    background-color: white;
+    // background-color: #131313;
+    background-image: url('../images/earth-and-milky-way-wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow-x: hidden;
     position: relative;
     height: 100vh;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+}
+#layout-main{
+    min-height: 150%;
+    width: 100%;
+    background-color: #101010;
 }
 #home-container{
     display: flex;
+    height: 100%;
     #feed-posts{
+        height: 100%;
         width: 70%;
         padding: 10px;
     }
     #user-friends{
+        height: 100%;
         width: 30%;
         padding: 10px;
     }
 }
+#HomePage{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    .homeDefault{
+        position: relative;
+        display: flex;
+        width: 50%;
+        height: 40%;
+        margin-top: 18%;
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+        .introHead{
+            color: white;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 70px;
+            margin-top: -10px;
+        }
+    }
+
+    .joinUs{
+        width: 50%;
+        height: 18rem;
+        margin-top: 8%;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .inviteCard{
+            width: 60%;
+            height: 100%;
+            position: relative;
+            padding-top: 15px;
+            background: rgba( 255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(227, 177, 27, 0.513);
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );       
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            font-size: 45px;
+            color: white;
+            #subMsg{
+                font-size: 20px;
+                margin-top: 1rem;
+            }
+            #getStarted{
+                position: relative;
+                width: 40%;
+                margin-top: 4rem;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 30px;
+                background-color: white;
+                border: 1px solid black;
+                color: black;
+            }
+        }
+
+    }
+}
+
 
 
 
@@ -29,93 +104,170 @@ body{
 }
 .feed{
     margin-top: 0;
-    color: black;
-    font-family: cursive;
+    color: white;
+    font-family: "Roboto Mono","Roboto",monospace;
+    font-size: 30px;
 }
 
 .post-form{
-    width: 50%;
+    width: 70%;
     height: 15%;
     margin-left: auto;
     margin-right: auto;
     textarea{
         margin-left: auto;
         margin-right: auto;
+        padding: 15px;
         width: 100%;
-        border: 2px solid black;
-        border-radius: 8px;
+        background-color: #303030;
+        border: 2px solid white;
+        color: white;
     }
+        textarea:hover{
+        box-shadow: 0px 3px 12px 0 rgb(204, 1, 255);
+        }
+    
     input{
-        float: right;
         background-color: white;
         border: 2px solid black;
-        border-radius: 8px;
-        width: 5rem;
+        padding: 10px;
+        font-size: 20px;
+        float: right;
         &:hover {
             background-color: rgb(183, 183, 183);
             cursor: pointer;
         }
+        margin-right: -2.1rem;
+        margin-top: 10px;
     } 
 }
 #post-list-container{
-    height: 4rem;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    min-height: 4rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 20px;
+    position: relative;
     ul{
         position: relative;
         height: 100%;
-        float: left;
-        margin-left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         li{
             padding: 12px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 15px;
             position: relative; 
             display: inline-block; 
-            background-color: white;
-            color: black;
-            border: 2px solid black; 
-            border-radius: 8px;
+            background-color: #202020;
+            color: white;
+            border: 2px solid white; 
             .post-content{
-                background-color:rgb(255, 193, 205);
-                border: 1px solid black;
-                border-radius: 8px;
-                padding: 5px;
+                background-color: #101010;
+                height: fit-content;
+                color: white;
+                border: 2px solid white;
+                padding: 12px;
                 margin-bottom: 5px;
+                position: relative;
+                .delete-post-button{
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                }
+                .toggle-like-button{
+                    position: absolute;
+                    bottom: 10px;
+                    left: 10px;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 20px;
+                }
+                .mainPostContent{
+                    position: relative;
+                    width: 80%;
+                    min-height: 10rem;
+                    overflow-x: hidden;
+                    overflow-wrap: break-word;
+                    color: white;
+                    margin-top: 10px;
+                    font-size: 20px;
+                }
             }
             .user-name{
-                float: right;
-                color: rgb(43, 0, 66);
+                color: white;
+                background-color: #303030;
+                padding: 4px;
             }
+            
+            
             #comment-list{
+                position: relative;
+                width: 100%;
+                #Comms{
+                    text-align: center;
+                    font-size: 20px;
+                }
+
                 .comment-form{
                     input{
                         background-color: white;
-                        padding: 4px;
-                        border: 2px solid black;
-                        border-radius: 8px;
+                        padding: 10px;
+                        border: 2px solid black;               
                     } 
+                    .cmt{
+                        width: 75%;
+                    }
+                    .submit{
+                        position: relative;
+                        width: 20%;
+                        margin-left: 5px;
+                    }
                     .submit:hover{
                         background-color: rgb(183, 183, 183);
                         cursor: pointer;
                     }
                 }
-
-                .post-comment-list{
-                    // width: 100%;
-                    ul{
-                        float: left;
-                        // width: 100%;
-                        height: fit-content;
-                        p{
-                            background-color: greenyellow;
-                            width: 90%;
+            }
+           
+            .post-comment-list{
+                margin-top: 10px;
+                margin-left: -2.7rem;
+                width: 100%;
+                position: relative;
+                float: left;
+                ul{
+                    position: relative;
+                    height: fit-content;
+                    display: flex;
+                    align-items: center;
+                    li{
+                        width: 93%;
+                        border: 1px solid white;
+                        .comment-content{
+                            background-color: #101010;
+                            width: 97%;
+                            min-height: 5rem;
                             padding: 4px;
                             border: 2px solid black;
                             border-radius: 8px;
                             height: fit-content;
+                            position: relative;
+                            .delete-comment-button{
+                                 position: absolute;
+                                 top: 10px;
+                                 right: 10px;
+                            }
+                        
                         }
                     }
+                    
                 }
             }
         }
@@ -125,4 +277,16 @@ body{
 #user-friends{
     color: black;
 
+}
+
+.fa-trash-can{
+    color: red;
+}
+
+.white{
+    color: white;
+}
+
+.pink{
+    color: rgb(255, 0, 43);
 }
