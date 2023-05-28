@@ -1,9 +1,11 @@
 header{
-    position: relative;
+    position: fixed;
     // background-color: #7339AB;
     margin: 0;
+    width: 100%;
     overflow: hidden;
     height: 15%;
+    z-index: 2;
     ul{
         float: right;
         height: 100%;

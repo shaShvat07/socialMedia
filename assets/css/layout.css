@@ -17,19 +17,114 @@ body {
   display: flex;
   height: 100%; }
   #home-container #feed-posts {
+    margin-top: 8%;
     height: 100%;
     width: 70%;
     padding: 10px; }
   #home-container #user-friends {
     height: 100%;
-    width: 30%;
-    padding: 10px; }
+    margin-top: 6.5%;
+    width: 25%;
+    position: fixed;
+    right: 0;
+    padding: 10px;
+    border-left: 2px solid white;
+    color: white;
+    background-color: #202020; }
+    #home-container #user-friends .friends-list {
+      width: 100%;
+      position: relative;
+      margin-top: 3.5%;
+      height: 36%;
+      overflow-y: scroll; }
+      #home-container #user-friends .friends-list .header {
+        font-size: 30px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        letter-spacing: 0.8px;
+        text-align: center; }
+      #home-container #user-friends .friends-list .no-friends {
+        font-size: 20px;
+        text-align: center; }
+      #home-container #user-friends .friends-list .yes-friend {
+        width: 90%;
+        margin-left: 5px;
+        margin-bottom: 5px; }
+        #home-container #user-friends .friends-list .yes-friend .friends-item {
+          width: 100%;
+          text-decoration: none;
+          position: relative; }
+          #home-container #user-friends .friends-list .yes-friend .friends-item .friends-img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            border: 2px solid white;
+            display: inline-block; }
+            #home-container #user-friends .friends-list .yes-friend .friends-item .friends-img img {
+              width: 2rem;
+              height: 2rem;
+              border-radius: 50%; }
+          #home-container #user-friends .friends-list .yes-friend .friends-item .friends-name {
+            display: inline-block;
+            position: relative;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-0.5rem); }
+    #home-container #user-friends .discover {
+      position: absolute;
+      width: 100%;
+      top: 60%;
+      left: 50%;
+      height: 42%;
+      margin-top: 10px;
+      transform: translate(-50%, -50%);
+      border-top: 2px solid white; }
+      #home-container #user-friends .discover .dis-help {
+        width: 97%;
+        height: 95%;
+        margin-top: 10px;
+        overflow-y: scroll; }
+      #home-container #user-friends .discover .header {
+        margin-top: 3%;
+        text-align: center;
+        font-size: 30px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        letter-spacing: 0.8px;
+        position: relative; }
+      #home-container #user-friends .discover .yes-friend {
+        width: 90%;
+        margin-bottom: 5px;
+        margin-left: 15px; }
+        #home-container #user-friends .discover .yes-friend .friends-item {
+          width: 100%;
+          text-decoration: none;
+          position: relative; }
+          #home-container #user-friends .discover .yes-friend .friends-item .friends-img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            border: 2px solid white;
+            display: inline-block;
+            position: relative; }
+            #home-container #user-friends .discover .yes-friend .friends-item .friends-img #user-dp {
+              width: 2rem;
+              height: 2rem;
+              border-radius: 50%;
+              display: inline-block; }
+          #home-container #user-friends .discover .yes-friend .friends-item .friends-name {
+            display: inline-block;
+            position: relative;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-0.5rem); }
 
 #HomePage {
   display: flex;
   position: absolute;
   width: 100%;
-  height: 25%; }
+  height: 25%;
+  margin-top: 8%; }
   #HomePage .homeDefault {
     position: relative;
     display: flex;
@@ -69,16 +164,20 @@ body {
       #HomePage .joinUs .inviteCard #subMsg {
         font-size: 20px;
         margin-top: 1rem; }
-      #HomePage .joinUs .inviteCard #getStarted {
-        position: relative;
-        width: 40%;
-        margin-top: 4rem;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 30px;
-        background-color: white;
-        border: 1px solid black;
-        color: black; }
+      #HomePage .joinUs .inviteCard a {
+        color: black;
+        text-decoration: none; }
+        #HomePage .joinUs .inviteCard a #getStarted {
+          position: relative;
+          width: 40%;
+          margin-top: 4rem;
+          margin-left: auto;
+          margin-right: auto;
+          font-size: 30px;
+          background-color: white;
+          border: 1px solid black; }
+      #HomePage .joinUs .inviteCard #getStarted:hover {
+        background-image: linear-gradient(109.6deg, #9cfcf8 11.2%, #6e7bfb 91.1%); }
 
 .title {
   text-align: center; }
@@ -86,8 +185,9 @@ body {
 .feed {
   margin-top: 0;
   color: white;
-  font-family: "Roboto Mono","Roboto",monospace;
-  font-size: 30px; }
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 3px;
+  font-size: 35px; }
 
 .post-form {
   width: 70%;
@@ -99,11 +199,11 @@ body {
     margin-right: auto;
     padding: 15px;
     width: 100%;
-    background-color: #303030;
+    background-color: #353535;
     border: 2px solid white;
     color: white; }
   .post-form textarea:hover {
-    box-shadow: 0px 3px 12px 0 #cc01ff; }
+    box-shadow: 0px 3px 12px 0 #f98b53; }
   .post-form input {
     background-color: white;
     border: 2px solid black;
@@ -113,7 +213,7 @@ body {
     margin-right: -2.1rem;
     margin-top: 10px; }
     .post-form input:hover {
-      background-color: #b7b7b7;
+      background-image: linear-gradient(to right, #ff9966, #ff5e62);
       cursor: pointer; }
 
 #post-list-container {
@@ -164,7 +264,7 @@ body {
           font-size: 20px; }
         #post-list-container ul li .post-content .mainPostContent {
           position: relative;
-          width: 80%;
+          width: 90%;
           min-height: 10rem;
           overflow-x: hidden;
           overflow-wrap: break-word;
@@ -189,14 +289,14 @@ body {
           width: 75%; }
         #post-list-container ul li #comment-list .comment-form .submit {
           position: relative;
-          width: 20%;
-          margin-left: 5px; }
+          width: 20.9%;
+          margin-left: 5px;
+          font-weight: 500; }
         #post-list-container ul li #comment-list .comment-form .submit:hover {
-          background-color: #b7b7b7;
+          background-image: linear-gradient(109.6deg, #9cfcf8 11.2%, #6e7bfb 91.1%);
           cursor: pointer; }
       #post-list-container ul li .post-comment-list {
         margin-top: 10px;
-        margin-left: -2.7rem;
         width: 100%;
         position: relative;
         float: left; }
@@ -204,23 +304,45 @@ body {
           position: relative;
           height: fit-content;
           display: flex;
-          align-items: center; }
+          align-items: center;
+          width: 95%;
+          border: 2px solid white; }
           #post-list-container ul li .post-comment-list ul li {
-            width: 93%;
-            border: 1px solid white; }
+            width: 100%;
+            margin-left: -2rem;
+            border: none;
+            margin-top: 0;
+            margin-bottom: 0;
+            position: relative; }
             #post-list-container ul li .post-comment-list ul li .comment-content {
-              background-color: #101010;
-              width: 97%;
+              background-color: #303030;
+              width: 98%;
               min-height: 5rem;
               padding: 4px;
-              border: 2px solid black;
-              border-radius: 8px;
-              height: fit-content;
-              position: relative; }
+              border: 1px solid white;
+              position: relative;
+              margin: 0; }
               #post-list-container ul li .post-comment-list ul li .comment-content .delete-comment-button {
                 position: absolute;
                 top: 10px;
                 right: 10px; }
+              #post-list-container ul li .post-comment-list ul li .comment-content .comment-name {
+                position: relative;
+                top: 5px;
+                left: 5px;
+                color: white;
+                background-color: #101010;
+                padding: 4px; }
+              #post-list-container ul li .post-comment-list ul li .comment-content .main-comment-content {
+                position: relative;
+                width: 90%;
+                min-height: 2rem;
+                overflow-x: hidden;
+                overflow-wrap: break-word;
+                color: white;
+                margin-top: 10px;
+                margin-left: 5px;
+                font-size: 18px; }
 
 #user-friends {
   color: black; }
@@ -232,4 +354,7 @@ body {
   color: white; }
 
 .pink {
+  color: #ff002b; }
+
+.fa-heart:hover {
   color: #ff002b; }

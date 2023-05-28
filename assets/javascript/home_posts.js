@@ -40,33 +40,37 @@
 
   // method to create a post in DOM
   let newPostDom = function (post) {
-    return $(`<li id="post-${post._id}">
+    return $(`<li id="post-${ post._id }">
+    <div class="post-content">
 
-    <p class="post-content">
+      <small>
+        <a class="delete-post-button" href="/posts/destroy/<${ post.id }"> <i class="fa-solid fa-trash-can fa-2x"></i> </a>
+      </small>
  
-        <small>
-            <a class="delete-post-button" href="/posts/destroy/${post._id}"> X </a>
-        </small>
-
-        ${post.content}
-    <br />
-    <small class="user-name">- ${post.user.name} </small>
-    <br />
-    <small>
-                            
-    <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
-        0 Likes
+  
+      <small class="user-name">${ post.user.name } </small>
+      <br>
+    <div class="mainPostContent"> ${ post.content }  </div> 
+    <br>
+ 
+    <div>
+    <a
+      class="toggle-like-button"
+      data-likes="${ post.likes.length }"
+      href="/likes/toggle/?id=${post._id}&type=Post"
+    >
+     <i class="fa-regular white fa-heart fa-lg"> &nbsp; ${post.likes.length} </i>
     </a>
-
-</small>
-    </p>
-
+     </div>
+     
+   </div>
     <div id="comment-list">
         <div class="comment-form">
         
-        <form action="/comments/create" method="POST">
+        <form id="post-${post._id}-comment-form" action="/comments/create" method="POST">
             <input
             type="text"
+            class="cmt"
             name="content"
             placeholder="Type here to add comment"
             required
@@ -76,14 +80,14 @@
         </form>
       
         </div>
-
+        <br>
+        <div id="Comms"> Comments </div>
         <div class="post-comment-list">
         <ul id="post-comments-${post._id}">
 
         </ul>
         </div>
     </div>
-
 </li>`)
   }
 

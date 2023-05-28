@@ -23,22 +23,55 @@
       <ul>
         <% for(post of posts) { %>
     
-          <%- include('_post') -%>    
-        
+          <%- include('_post') -%>   
+           <br>
+
         <% } %>
       </ul>
     </div>
   </section>
 
   <section id="user-friends">
-    <h4> Discover more people </h4>
-    <% for (u of all_users) { %>
-    <p>
-      <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
-    </p>
-    <% } %>
 
     <%- include('_friend') -%>
+
+    <div class="discover"> 
+      <div class="dis-help">
+        <div class="header"> Discover </div> 
+        <br>
+            <% for (u of all_users) { %>
+              <div class="yes-friend">
+                <a class="friends-item" href="/users/profile/<%= u.id %>">
+                  <div class="friends-img">
+                    <% if(u.avatar == undefined){ %>
+                    <img
+                      class="rounded-circle"
+                      id="user-dp"
+                      src="https://images.assetsdelivery.com/compings_v2/tanyastock/tanyastock1608/tanyastock160801788.jpg"
+                      alt="logo"
+                    />
+                    <% }else{ %>
+                    <img
+                      class="rounded-circle"
+                      id="user-dp"
+                      src="<%= u.avatar %>"
+                      alt="logo2"
+                    />
+                    <% } %>
+                  </div>
+                  <div class="friends-name"><%= u.name %>
+                  <% if(locals.user._id == u.id){ %>
+                  (Me)
+                  <% } %>
+                  </div>
+                </a>
+              </div>
+            <!-- <div class="disUser">
+              <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
+            </div> -->
+            <% } %>
+      </div> 
+    </div>
 
   </section> 
 
@@ -58,9 +91,11 @@
         <div id="subMsg">
           Building Bridges with Every Like
         </div>
+      <a class="lessgoo" href="/users/sign-up" >
         <div id="getStarted">
-             Join Now  
-        </div>
+          Join Now </div>
+      </a>
+        
       </div>
 </section>
   </div>

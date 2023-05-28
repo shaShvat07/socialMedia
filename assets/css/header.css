@@ -1,8 +1,10 @@
 header {
-  position: relative;
+  position: fixed;
   margin: 0;
+  width: 100%;
   overflow: hidden;
-  height: 15%; }
+  height: 15%;
+  z-index: 2; }
   header ul {
     float: right;
     height: 100%;
