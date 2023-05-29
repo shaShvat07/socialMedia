@@ -22,7 +22,8 @@ header {
         font-size: 20px;
         padding: 14px; }
       header ul li:hover {
-        background-color: white; }
+        background-color: white;
+        cursor: pointer; }
         header ul li:hover a {
           color: black; }
     header ul #signIn {
@@ -40,4 +41,6 @@ header {
   height: 100%;
   margin-left: 2rem;
   margin-top: 1.5rem;
-  color: white; }
+  color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 2px; }

@@ -3,6 +3,9 @@
     <div class="company"> <i class="fa-sharp fa-solid fa-lambda"></i> <i> <b> Lambda</b> </i>  </div>
     <ul type="none">
         <% if (locals.user) { %>
+            <li id="chatContainer">
+                <a href"#" id="showChatButton">Chat Room</a>
+            </li>
             <li> 
                 <a href="/users/profile/<%= locals.user._id %>"> <%= user.name %> </a>
             </li>

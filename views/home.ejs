@@ -51,12 +51,22 @@
                       alt="logo"
                     />
                     <% }else{ %>
+                  <% if(locals.user._id == u.id){ %>
+                    <img
+                      class="rounded-circle meraPhoto"
+                      id="user-dp"
+                      src="<%= u.avatar %>"
+                      alt="logo2"
+                    />
+                  <% } else { %>
                     <img
                       class="rounded-circle"
                       id="user-dp"
                       src="<%= u.avatar %>"
                       alt="logo2"
                     />
+                    <% } %>
+
                     <% } %>
                   </div>
                   <div class="friends-name"><%= u.name %>
@@ -117,6 +127,13 @@
 
 <% if(locals.user) { %>
 <script>
-      new chatEngine('user-chat-box' , '<%= locals.user.email %>');
+  const showChatButton = document.getElementById('showChatButton');
+  const chatContainer = document.getElementById('user-chat-box');
+
+showChatButton.addEventListener('click', () => {
+  chatContainer.classList.toggle('show');
+});
+  const aatar = $('.meraPhoto').attr('src');
+      new chatEngine('user-chat-box' , '<%= locals.user.email %>' , aatar );
 </script>
 <% } %>

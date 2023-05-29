@@ -1,9 +1,9 @@
 class chatEngine{
-    constructor(chatBoxId, userEmail){
+    constructor(chatBoxId, userEmail , userAvatar){
         this.chatBox = $(`#${chatBoxId}`);
         this.userEmail = userEmail;
+        this.userAvatar = userAvatar;
         this.socket = io.connect('http://:5000');
-
         if(this.userEmail){
             this.connectionHandler();
         }
@@ -12,6 +12,8 @@ class chatEngine{
 
     connectionHandler(){
         let self = this;
+        console.log('avatar bhai' , self.userAvatar);
+
         this.socket.on('connect' , function(){
             console.log('Connection established using sockets!');
 
@@ -34,6 +36,7 @@ class chatEngine{
             self.socket.emit('send_message',{
                 message: msg,
                 user_email: self.userEmail,
+                user_avatar: self.userAvatar,
                 chatroom: 'lambda'
             });
         }
@@ -48,15 +51,19 @@ class chatEngine{
         if(data.user_email == self.userEmail){
             messageType = 'self-message';
         }
+        
+        console.log('avatar' , data.user_avatar);
+        newMessage.append($('<img>', {
+            'src': data.user_avatar,
+            'alt': 'Image description'
+        }));
 
         newMessage.append($('<span>' , {
             'html' : data.message
         }));
 
-        newMessage.append($('<sub>', {
-            'html' : data.user_email
-        }));
 
+        console.log(data);
         newMessage.addClass(messageType);
 
         $('#chat-messages-list').append(newMessage);
