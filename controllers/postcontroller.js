@@ -9,7 +9,7 @@ module.exports.create = async function (req, res) {
             content: req.body.content,
             user: req.user._id
         });
-        await post.populate('user', 'name');
+        await post.populate('user', 'name email avatar');
 
 
         // To detect AJAX request 

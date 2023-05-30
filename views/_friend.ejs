@@ -6,7 +6,7 @@
 <% } %> -->
 <% if(locals.user) { %>
   <div class="friends-list">
-    <div class="header">Friends</div>
+    <div class="header">Friends (<%= locals.user.friends.length %>)</div>
     <br>
     <% if(locals.user.friends.length == 0) { %>
 

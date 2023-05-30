@@ -44,3 +44,6 @@ header {
   color: white;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   letter-spacing: 2px; }
+  .company a {
+    color: white;
+    text-decoration: none; }

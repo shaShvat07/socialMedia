@@ -44,11 +44,22 @@
     <div class="post-content">
 
       <small>
-        <a class="delete-post-button" href="/posts/destroy/<${ post.id }"> <i class="fa-solid fa-trash-can fa-2x"></i> </a>
+        <a class="delete-post-button" href="/posts/destroy/${ post._id }"> <i class="fa-solid fa-trash-can fa-2x"></i> </a>
       </small>
  
-  
-      <small class="user-name">${ post.user.name } </small>
+      <div class="post-img-vau"> 
+      <a href="/users/profile/${post.user._id}">
+      ${post.user.avatar ? `<img src="${post.user.avatar}" alt="${post.user.name}">` : ` <img
+      class="rounded-circle"
+      id="user-dp"
+      src="https://images.assetsdelivery.com/compings_v2/tanyastock/tanyastock1608/tanyastock160801788.jpg"
+      alt="${post.user.name}"
+    />`}
+      </a>
+      </div>
+      <a href="/users/profile/${post.user._id}">
+           <small class="user-name">${ post.user.name } </small>
+      </a>
       <br>
     <div class="mainPostContent"> ${ post.content }  </div> 
     <br>
@@ -59,7 +70,7 @@
       data-likes="${ post.likes.length }"
       href="/likes/toggle/?id=${post._id}&type=Post"
     >
-     <i class="fa-regular white fa-heart fa-lg"> &nbsp; ${post.likes.length} </i>
+     <i class="fa-regular white fa-heart fa-lg">  ${post.likes.length} </i>
     </a>
      </div>
      

@@ -81,6 +81,14 @@ body{
                 }
             }
             }
+            .yes-friend:hover{
+                .friends-img{
+                    border: 2px solid rgb(231, 1, 66);
+                }
+                .friends-name{
+                    font-size: 19px;
+                }
+            }
         }
         .discover{
             position: absolute;
@@ -109,7 +117,7 @@ body{
             .yes-friend{
                 width: 90%;
                 margin-bottom: 5px;
-                margin-left: 15px;
+                margin-left: 15px;   
                 .friends-item{ 
                     width: 100%;
                     text-decoration: none;
@@ -137,6 +145,15 @@ body{
                     transform: translateY(-0.5rem);
                 }
             }
+            }
+
+            .yes-friend:hover{
+                .friends-img{
+                    border: 2px solid rgb(231, 1, 66);
+                }
+                .friends-name{
+                    font-size: 19px;
+                }
             }
             // .disUser{
             //     padding: 2px;
@@ -297,6 +314,8 @@ body{
             background-color: #202020;
             color: white;
             border: 2px solid white; 
+            max-height: 30rem;
+            overflow-y: scroll;
             .post-content{
                 background-color: #101010;
                 height: fit-content;
@@ -310,6 +329,11 @@ body{
                     top: 10px;
                     right: 10px;
                 }
+                .delete-post-button:hover{
+                    i{
+                    color: rgb(176, 32, 0);
+                    }
+                }
                 .toggle-like-button{
                     position: absolute;
                     bottom: 10px;
@@ -321,11 +345,10 @@ body{
                 .mainPostContent{
                     position: relative;
                     width: 90%;
-                    min-height: 10rem;
+                    min-height:6rem;
                     overflow-x: hidden;
                     overflow-wrap: break-word;
                     color: white;
-                    margin-top: 10px;
                     font-size: 20px;
                 }
             }
@@ -333,6 +356,16 @@ body{
                 color: white;
                 background-color: #303030;
                 padding: 4px;
+                position: absolute;
+                top: 1rem;
+                left: 3.2rem;
+            }
+            .post-img-vau {
+                img {
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50%;
+                }
             }
             
             
@@ -355,7 +388,7 @@ body{
                     }
                     .submit{
                         position: relative;
-                        width: 20.9%;
+                        width: 20.4%;
                         margin-left: 5px;
                         font-weight: 500;
                     }
@@ -378,9 +411,10 @@ body{
                     align-items: center;
                     width: 95%;
                     border: 2px solid white;
+                    margin-left: -0.2rem;
                     li{
                         width: 100%;
-                        margin-left: -2rem;
+                        margin-left: -1.9rem;
                         border: none;
                         margin-top: 0;
                         margin-bottom: 0;
@@ -399,9 +433,9 @@ body{
                                  right: 10px;
                             }
                             .comment-name{
-                                position: relative;
-                                top: 5px;
-                                left: 5px;
+                                position: absolute;
+                                top: 0.5rem;
+                                left: 2.5rem;
                                 color: white;
                                 background-color: #101010;
                                 padding: 4px;
@@ -422,6 +456,9 @@ body{
                     
                 }
             }
+        }
+        li::-webkit-scrollbar{
+            display: none;
         }
     }
 }
