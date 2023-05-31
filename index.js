@@ -20,10 +20,6 @@ const customMware = require('./config/middleware');
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 var cors = require('cors');
-// const corsOptions = {
-//     origin: "*",
-//     optionsSuccessStatus: 200
-//   };
 
 chatServer.listen(5000);
 console.log('Chat server is running on port: 5000');

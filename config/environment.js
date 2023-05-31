@@ -22,7 +22,24 @@ const development = {
 }
 
 const production = {
-    name: 'production'
+    name: 'production',
+    asset_path: process.env.LAMBDA_ASSETS_PATH,
+    session_cookie_key: process.env.LAMBDA_SESSION_COOKIE_NAME,
+    db: process.env.LAMBDA_DB,
+    smtp: {
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+            user: process.env.LAMBDA_USER_GMAIL,
+            pass:  process.env.LAMBDA_GMAIL_PASS
+        }
+    },
+    google_client_id: process.env.LAMBDA_GOOGLE_CLIENT_ID,
+    google_client_secret: process.env.LAMBDA_CLIENT_SECRET,
+    google_callback_url: process.env.LAMBDA_CALLBACK_URL,
+    jwt_secret: process.env.LAMBDA_JWT_SECRET
 }
 
-module.exports = development;
+module.exports = eval(process.env.LAMBDA_ENVIRONMENT) == undefined ? development : eval(process.env.LAMBDA_ENVIRONMENT);
