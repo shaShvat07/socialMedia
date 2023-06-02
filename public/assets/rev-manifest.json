@@ -5,9 +5,10 @@
   "css/layout.css": "css/layout-a13dc506cd.css",
   "css/user-profile.css": "css/user-profile-46fdbd5234.css",
   "css/user-signup.css": "css/user-signup-013ae459f7.css",
-  "images/G-Man_Alyx_Trailer.jpg": "images/G-Man_Alyx_Trailer-1477f0c32b.jpg",
-  "images/IMG_20211230_182552.jpg": "images/IMG_20211230_182552-888cce64e9.jpg",
   "images/earth-and-milky-way-wallpaper.jpg": "images/earth-and-milky-way-wallpaper-378edfe146.jpg",
-  "images/socialmedia.jpg": "images/socialmedia-d0c422d386.jpg",
-  "images/socmedia2.png": "images/socmedia2-b9553d91be.png"
+  "javascript/chat_engine.js": "javascript/chat_engine-9305867207.js",
+  "javascript/home_post_comments.js": "javascript/home_post_comments-9528aa435c.js",
+  "javascript/home_posts.js": "javascript/home_posts-1412b086b1.js",
+  "javascript/toggle_friend.js": "javascript/toggle_friend-0b2b2353ff.js",
+  "javascript/toggle_likes.js": "javascript/toggle_likes-cfed9bc829.js"
 }

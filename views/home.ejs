@@ -112,10 +112,10 @@
     
   <% } %>
 
-<script src="/javascript/home_post_comments.js"></script>
-<script src="/javascript/home_posts.js"></script>
+<script src="<%= assetPath('javascript/home_post_comments.js') %>"></script>
+<script src="<%= assetPath('javascript/home_posts.js') %>"></script>
 
-<script src="/javascript/toggle_likes.js"></script>
+<script src="<%= assetPath('javascript/toggle_likes.js') %>"></script>
 <script>
     $('.toggle-like-button').each(function(){
         let self = this;
@@ -123,7 +123,7 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-<script src="/javascript/chat_engine.js"> </script>
+<script src="<%= assetPath('javascript/chat_engine.js') %>"> </script>
 
 <% if(locals.user) { %>
 <script>
