@@ -42,7 +42,7 @@ module.exports.home = async function (req, res) {
         }
 
         return res.render('home', {
-            title: "SHIELD",
+            title: "Lambda",
             posts: posts,
             all_users: users,
             user: user
