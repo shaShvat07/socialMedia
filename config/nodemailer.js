@@ -21,6 +21,7 @@ let renderTemplate = (data, relativePath) => {
     return mailHTML;
 }
 
+//exporting
 module.exports = {
     transporter: transporter,
     renderTemplate: renderTemplate
