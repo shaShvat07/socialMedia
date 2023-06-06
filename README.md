@@ -27,8 +27,14 @@ Now, download all the dependencies using
 ``` bash 
 npm install 
 ```
+You need to setup redis, mongoDB for this to work completely! Refer the following link for deatiled steps
+[Redis](https://www.youtube.com/watch?v=nB7zi88DB1Y)
+[MongoDB](https://www.mongodb.com/docs/compass/current/)
+
 To run the project in development mode use : 
 ``` bash 
-npm run 
+npm start
 ``` 
+The application should be running [here](http://localhost:8000).
+
 
