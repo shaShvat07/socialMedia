@@ -20,6 +20,14 @@ Features:
 9.  Chat box to talk in real time!
 10. Dark UI for nice user experience
 
+
+## Disclaimer 
+``` 
+Make sure your node version is v16.16.0 and npm version is v8.11.0 in order to run the application properly
+as some of the code will become outdated if you use newer version of Node.
+```
+
+
 ## Installation 
 
 Download the Zip file and extract it
@@ -27,14 +35,36 @@ Now, download all the dependencies using
 ``` bash 
 npm install 
 ```
-You need to setup redis, mongoDB for this to work completely! Refer the following link for deatiled steps
-[Redis](https://www.youtube.com/watch?v=nB7zi88DB1Y)
-[MongoDB](https://www.mongodb.com/docs/compass/current/)
+You need to setup redis, mongoDB for this to work completely! Refer the following link for deatiled steps: 
+
+
+> [Redis](https://www.youtube.com/watch?v=nB7zi88DB1Y)
+
+> [MongoDB](https://www.mongodb.com/docs/compass/current/)
+
+### Caution
+If you do any changes to the scss/css or js files, and you are trying to run it in production mode ( for which you also have to add manually
+add environment variables in your system), you need to gulp to compress it for it to reflect the changes. 
+
+``` js
+gulp build
+gulp js /*If js files doesn't appear in the rev.manifest.json in the /public/assets folder. */
+```
 
 To run the project in development mode use : 
 ``` bash 
 npm start
 ``` 
-The application should be running [here](http://localhost:8000).
+
+To run the project in production mode use: 
+``` bash 
+npm run prod_start
+```
+
+The application should be running on local host(i.e. http://localhost:8000).
+
+
+ 
+
 
 
