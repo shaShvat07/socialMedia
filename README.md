@@ -43,8 +43,8 @@ You need to setup redis, mongoDB for this to work completely! Refer the followin
 > [MongoDB](https://www.mongodb.com/docs/compass/current/)
 
 ### Caution
-If you do any changes to the scss/css or js files, and you are trying to run it in production mode ( for which you also have to add manually
-add environment variables in your system), you need to gulp to compress it for it to reflect the changes. 
+If you do any changes to the scss/css or js files, and you are trying to run it in production mode ( for which you also have to manually
+add environment variables in your system), you need to use gulp to compress and process the respective files to reflect the changes. 
 
 ``` js
 gulp build
