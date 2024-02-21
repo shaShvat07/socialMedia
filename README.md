@@ -25,6 +25,9 @@ Features:
 ``` 
 Make sure your node version is v16.16.0 and npm version is v8.11.0 in order to run the application properly
 as some of the code will become outdated if you use newer version of Node.
+UPD:
+Google SignUp/SignIn Feature is disabled for now!
+I made this project to learn about how Backend Development works, so I haven't worked on making the website responsive [ I am too lazy for that :P ] 
 ```
 
 
