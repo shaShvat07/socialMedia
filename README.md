@@ -3,11 +3,8 @@
 Lambda is a social media web application where users can make posts, comments, like & make friends. Users can also personalize their profile and 
 it also have a chatting engine which enables them to talk in real time !
 
+## Features: 
 
-## Description 
-```
-Features: 
-```
 
 1.  Google authorization for seamless sign-in and sign-up
 2.  Secure authentication using Passport.js
@@ -45,7 +42,7 @@ You need to setup redis, mongoDB for this to work completely! Refer the followin
 
 > [MongoDB](https://www.mongodb.com/docs/compass/current/)
 
-### Caution
+## Caution
 If you do any changes to the scss/css or js files, and you are trying to run it in production mode ( for which you also have to manually
 add environment variables in your system), you need to use gulp to compress and process the respective files to reflect the changes. 
 
